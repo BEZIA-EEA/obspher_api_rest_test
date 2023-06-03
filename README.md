@@ -7,3 +7,5 @@
  cmake ..
  make
 
+# run
+./server
