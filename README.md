@@ -2,10 +2,13 @@
  serveur web RESTful en C++
 
  # Build
+ ```
  mkdir build
  cd buid
  cmake ..
  make
-
+```
 # run
+```
 ./server
+```
