@@ -94,11 +94,15 @@ void create_response(const http::request<http::string_body>& req, http::response
 
 int main() {
     try {
+        // Démarrage du serveur
+        std::cout << "Démarrage du serveur..." << std::endl;
         // Initialisation du serveur
         asio::io_context io_context;
         asio::ip::tcp::acceptor acceptor(io_context, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), 8080));
         
         while (true) {
+            // Affichage de l'état du serveur
+            std::cout << "Serveur démarré et en attente de requêtes." << std::endl;
             // Attente et gestion des connexions
             asio::ip::tcp::socket socket(io_context);
             acceptor.accept(socket);
