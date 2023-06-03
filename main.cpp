@@ -99,6 +99,36 @@ int main() {
         // Initialisation du serveur
         asio::io_context io_context;
         asio::ip::tcp::acceptor acceptor(io_context, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), 8080));
+
+/*         // Connexion à la base de données
+        mysqlpp::Connection conn(false);
+        if (conn.connect("database_name", "localhost", "user", "password")) {
+            // Sélection de la base de données
+            mysqlpp::Query selectDb = conn.query("USE database_name");
+            if (!selectDb.exec()) {
+                std::cerr << "Erreur lors de la sélection de la base de données : " << selectDb.error() << std::endl;
+                return 1;
+            }
+
+            // Création de la table Users
+            mysqlpp::Query createUsersTable = conn.query("CREATE TABLE IF NOT EXISTS Users (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255), email VARCHAR(255), password VARCHAR(255))");
+            if (!createUsersTable.exec()) {
+                std::cerr << "Erreur lors de la création de la table Users : " << createUsersTable.error() << std::endl;
+                return 1;
+            }
+
+            // Création de la table Projects
+            mysqlpp::Query createProjectsTable = conn.query("CREATE TABLE IF NOT EXISTS Projects (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255), user_id INT, FOREIGN KEY (user_id) REFERENCES Users(id))");
+            if (!createProjectsTable.exec()) {
+                std::cerr << "Erreur lors de la création de la table Projects : " << createProjectsTable.error() << std::endl;
+                return 1;
+            }
+
+            // ...
+        } else {
+            std::cerr << "Erreur lors de la connexion à la base de données : " << conn.error() << std::endl;
+            return 1;
+        } */
         
         while (true) {
             // Affichage de l'état du serveur
